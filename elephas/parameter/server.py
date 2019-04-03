@@ -137,9 +137,12 @@ class HttpServer(BaseParameterServer):
         # self.app.run(host='0.0.0.0', debug=self.debug, port=self.port,
         #              threaded=self.threaded, use_reloader=self.use_reloader)
         from werkzeug.serving import run_simple
-        print("======self.master_url====")
+
+        print("======self.master_url  ==== ")
+        #changed for spark local
         if(self.master_url==None):
             self.master_url="127.0.0.1:4000"
+
         print(self.master_url)
         run_simple(self.master_url.split(':')[0], self.port, self.app)
 
